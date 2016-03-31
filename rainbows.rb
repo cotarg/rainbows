@@ -19,13 +19,15 @@ color_lookup = {
   [255,0,125] => "raspberry"
 }
 
-rainbow = [{:red => {r: 255, g: 0, b: 0}}, 
+rainbow = [
+          {:red => {r: 255, g: 0, b: 0}}, 
           {:orange => {r: 255, g: 125, b: 0}}, 
           {:yellow => {r: 255, g: 255, b: 0}}, 
           {:green => {r: 0, g: 255, b: 0}}, 
           {:blue => {r: 0, g: 0, b: 255}}, 
           {:indigo => {r: 75, g: 0, b: 130}}, 
-          {:violet => {r: 125, g: 0, b: 255}}]
+          {:violet => {r: 125, g: 0, b: 255}}
+          ]
 
 def mix_colors(color1,color2)
   mixed_color = []
