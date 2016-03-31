@@ -1,3 +1,5 @@
+require 'rainbow'
+
 red = [255,0,0]
 green = [0,255,0]
 blue = [0,0,255]
@@ -17,9 +19,13 @@ color_lookup = {
   [255,0,125] => "raspberry"
 }
 
-rainbow = [{:red => {r: 255, g: 0, b: 0}}, {:orange => {r: 255, g: 125, b: 0}}, 
-  {:yellow => {r: 255, g: 255, b: 0}}, {:green => {r: 0, g: 255, b: 0}}, {:blue => {r: 0, g: 0, b: 255}}, 
-  {:indigo => {r: 75, g: 0, b: 130}}, {:violet => {r: 125, g: 0, b: 255}}]
+rainbow = [{:red => {r: 255, g: 0, b: 0}}, 
+          {:orange => {r: 255, g: 125, b: 0}}, 
+          {:yellow => {r: 255, g: 255, b: 0}}, 
+          {:green => {r: 0, g: 255, b: 0}}, 
+          {:blue => {r: 0, g: 0, b: 255}}, 
+          {:indigo => {r: 75, g: 0, b: 130}}, 
+          {:violet => {r: 125, g: 0, b: 255}}]
 
 def mix_colors(color1,color2)
   mixed_color = []
@@ -44,7 +50,10 @@ puts "#{color_lookup[red]} #{red} + #{color_lookup[green]} #{green} = #{color_lo
 
 def print_rainbow(array)
   array.length.times do |iteration|
-    puts array[iteration].keys.join.upcase
+    color_to_print = array[iteration].keys.join
+
+    # by putting this in a variable, I can hook colorize or rainbow by requiring
+    puts Rainbow("#{color_to_print}").color(color_to_print.to_sym)
   end
 end
 
